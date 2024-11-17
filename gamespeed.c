@@ -170,28 +170,25 @@ void clean_dynamic(int **matrix) {
 }
 
 void change_speed(float *speed_multiplier) {
-    char input='c';
-    scanf("%c", &input);  
-    if (input == 'a') {       
-        *speed_multiplier += 0.1;
-
-        if (*speed_multiplier > 1.95) *speed_multiplier = 0.1;  
-        change_speed(speed_multiplier);
-        return;
+    char input = ' ';
+    
+    while (1) {
+        scanf(" %c", &input); // Пробел перед %c для игнорирования предыдущих символов
+        
+        if (input == 'a') {
+            *speed_multiplier += 0.1;
+            if (*speed_multiplier > 1.95) *speed_multiplier = 0.1;
+        } 
+        else if (input == 'z') {
+            *speed_multiplier -= 0.1;
+            if (*speed_multiplier < 0.05) *speed_multiplier = 1.9;
+        } 
+        else if (input == 'c') {
+            break; // Выход из цикла
+        }
+        
+        printf("Скорость: х%.1f\n", *speed_multiplier);
     }
-    if (input == 'z') {
-        *speed_multiplier -= 0.1;
-
-        if (*speed_multiplier < 0.05) *speed_multiplier = 1.9;
-        change_speed(speed_multiplier);
-        return;
-    }
-    if (input == 'c') {
-        *speed_multiplier;
-        return;
-    }
-    printf("Скорость: х%.1f\n", *speed_multiplier);
-    change_speed(speed_multiplier);
 }
 
 

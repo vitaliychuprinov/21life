@@ -17,7 +17,6 @@ int result_of_compare(int result);
 void algorythm(int **map);
 void input_stars(int **map);
 void clean_dynamic(int **matrix);
-void change_speed(float *speed_multiplier);
 
 int main() {
     int **map, n, flag = 1;
@@ -162,28 +161,4 @@ void clean_dynamic(int **matrix) {
         free(matrix[i]);
     }
     free(matrix);
-}
-
-/*
-void change_speed(float *speed_multiplier) {
-    int input = getch();  // считывание ввода с ncurses
-
-    if (input == 'n') {  // если нажата кнопка 'n', меняем скорость
-        *speed_multiplier += 0.1;
-
-        if (*speed_multiplier > 1.9) 
-            *speed_multiplier = 1.0;  // сбрасываем скорость, если превышение 1.9
-    }
-}
-*/
-
-void change_speed(float *speed_multiplier) {
-    char input = getchar();  // считывание ввода
-
-    if (input == 'n') {  // если нажата кнопка 'n' меняем скорость
-        *speed_multiplier += 0.1;
-
-        if (*speed_multiplier > 1.9) *speed_multiplier = 1.0;  // обнуляем скорость, если превышение х1.9
-    }
-    printf("Скорость: х%.1f\n", *speed_multiplier);  // вывод текущей скорости
 }
